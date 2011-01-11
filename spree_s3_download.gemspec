@@ -14,5 +14,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency('spree_core', '>= 0.40.0')
   #using this fork of right_aws to avoid a Rails 3 error
-  s.add_dependency("mikel-right_aws")
+  s.add_dependency("mikel-right_aws --source=https://github.com/mikel/right_aws.git")
 end                                               
