@@ -5,9 +5,13 @@ application.
 
 ## What this fork changes:
 
-Code is gemified and ready for Spree 0.40.0 
-Code is updated to be Rails 3 compatible
-S3 Product Add link added to product edit page by default (hook)
+Code is gemified and ready for Spree 0.40.0  and Rails 3 compatible, with a few minor bugs fixed. A 
+"add downloads" field is added to your product edit form and a "downloads" tab to the product's tabs.
+
+To use simply add this to your Gemfile:
+
+gem "right_aws", :git => "git://github.com/mikel/right_aws.git"  
+
 
 ## How to use:
 
