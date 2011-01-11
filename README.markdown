@@ -1,7 +1,11 @@
 # Spree S3 Product Extension
 
 The Spree S3 product extension lets you easily add downloads to your spree 
-application.
+application.  
+
+## What this fork changes:
+
+Code is gemified and ready for Spree 0.40.0
 
 ## How to use:
 
