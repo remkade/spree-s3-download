@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_s3_download'
-  s.version     = '1.0.'
+  s.version     = '1.0.3'
   s.summary     = 'Spree extension to allow s3 downloads in products - great for digital downloads e commerce'
   s.required_ruby_version = '>= 1.8.7'
   s.author            = 'Jack Kinsella'
