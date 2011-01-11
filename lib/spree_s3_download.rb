@@ -1,4 +1,5 @@
-require 'spree_core'
+require 'spree_core'   
+require "right_aws"
 require 'spree_s3_download_hooks'
 
 # Register the s3 extension module for product class to have a clean activation of it.
@@ -11,7 +12,6 @@ end
 
 module SpreeS3Download
   class Engine < Rails::Engine
-
     config.autoload_paths += %W(#{config.root}/lib)
 
     def self.activate
@@ -34,19 +34,10 @@ module SpreeS3Download
         Order.class_eval do
           scope :completed, includes(:line_items => {:variant => :product}).order('created_at desc')     
            # :conditions => {:status => Order::Status::PAID}, We're going to trust the user here.
-
-          scope :completed_bare, where(:status => :checkout_complete).
-            order('created_at desc')
          
         end  
       
-        Admin::ProductsController.class_eval do 
-          before_filter :add_s3_product_admin_tab
-
-          def add_s3_product_admin_tab
-            @product_admin_tabs << {:name => 'S3 Downloadables', :url => 'admin_product_s3_products_url'}
-          end
-        end
+ 
       
     end
 

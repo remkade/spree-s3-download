@@ -5,7 +5,9 @@ application.
 
 ## What this fork changes:
 
-Code is gemified and ready for Spree 0.40.0
+Code is gemified and ready for Spree 0.40.0 
+Code is updated to be Rails 3 compatible
+S3 Product Add link added to product edit page by default (hook)
 
 ## How to use:
 
@@ -37,7 +39,7 @@ Once you migrate and configure you need to add your associated s3 products.
 You can put a link in your product, say your edit view:
 
 		<%= link_to "Add S3 Object to &quot;#{@product.name}&quot;", 
-		    new_admin_product_s3_products_path(@product) %>
+		    new_admin_product_s3_product_path(@product) %>
 
 And link to your s3 products this way:
 
