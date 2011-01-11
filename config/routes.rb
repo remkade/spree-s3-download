@@ -1,6 +1,12 @@
-map.downloads '/downloads/:product_id', :controller => 'downloads', :action => 'index'
-map.download_individual '/downloads/:product_id/:id', :controller => 'downloads', :action => 'show'
+Rails.application.routes.draw do
 
-map.namespace :admin do |admin|
-  admin.resources :products, :has_many => [:s3_products]
+  match '/downloads/:product_id' => 'downloads#index',:as => :downloads
+  match "downloads/:product_id/:id" => "downloads#show", :as => :individual_download
+
+  namespace :admin do
+    resources :products do
+      resources :s3_products
+    end
+  end  
+  
 end
