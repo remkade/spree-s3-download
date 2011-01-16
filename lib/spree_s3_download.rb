@@ -1,5 +1,4 @@
 require 'spree_core'
-require "right_aws"
 require 'spree_s3_download_hooks'
 
 # Register the s3 extension module for product class to have a clean activation of it.
