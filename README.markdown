@@ -5,31 +5,32 @@ application.
 
 ## What this fork changes:
 
-Code is gemified and ready for Spree 0.40.0  and Rails 3 compatible, with a few minor bugs fixed. A 
-"add downloads" field is added to your product edit form and a "downloads" tab to the product's tabs.
+Code is gemified and ready for Spree 0.70.0  and Rails 3 compatible. An "add downloads" 
+field is added to your product edit form and a "downloads" tab to the product's tabs.
 
 To use simply add this to your Gemfile:
 
-gem "right_aws", :git => "git://github.com/mikel/right_aws.git"  
+    gem "aws-s3", :git => "https://github.com/marcel/aws-s3.git"
+
+Then run:
+
+    bundle install
+
+Then run this to install and run the appropriate migrations:
+
+    rails g spree_s3_download:install
 
 
 ## How to use:
 
-This has to go in the "vendor/spree/vendor/extensions" from your project
-root.
-
-First off, run the 'db:migrate' task.  There's a migration in the db directory
-that will create a s3_products table that's associated with products.
-
-In your project root (not Spree root), create config/initializers/s3.rb.  
-There's a sample in the config/initializers/s3.rb.  It supports the S3 gem
-convention of having environment variables: AMAZON_ACCESS_KEY_ID and 
-AMAZON_SECRET_ACCESS_KEY respectively.  So create it:
+In your project root (not Spree root), edit config/initializers/s3.rb.  
+It supports the S3 gem convention of having environment variables:
+AMAZON_ACCESS_KEY_ID and AMAZON_SECRET_ACCESS_KEY respectively. Example:
 
 		S3Options = {
 		  :access_key_id     => (ENV['AMAZON_ACCESS_KEY_ID'] || 'SECRET'),
 		  :secret_access_key => (ENV['AMAZON_SECRET_ACCESS_KEY'] || 'SECRET'),
-		  :product_bucket    => 'envycasts',
+		  :product_bucket    => 'example_bucket',
 		  :url_valid_for     => 15.minutes
 		}
 

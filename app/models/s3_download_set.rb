@@ -1,4 +1,4 @@
-require 'aws/s3'
+require 'right_aws'
 class S3DownloadSet
   attr_accessor :user, :product, :bucket, :urls
   attr_reader :s3_objects
