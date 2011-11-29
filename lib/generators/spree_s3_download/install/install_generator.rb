@@ -6,7 +6,7 @@ module SpreeS3Download
       source_root File.expand_path("../../../../", File.dirname(__FILE__))
       
       def add_migrations
-        run 'rake railties:install:migrations FROM=spree_s3_download'
+        run 'rake railties:install:migrations FROM=spree_s3_download_engine'
       end
 
       def run_migrations
